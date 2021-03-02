@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of messages</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Message</td>
+        <td>Action</td>
+    </tr>
+    <!--Display list of messages here-->
+    <tr th:each="message : ${messages}">
+        <td th:text="${message.id}"></td>
+        <td th:text="${message.messageBody}"></td>
+        <td> <a href="#">Edit</a> | Delete</td>
+    </tr>
+</table>
+
+<a href="/addForm">Add a new message</a>
+
+</body>
+</html>

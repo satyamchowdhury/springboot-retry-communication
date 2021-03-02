@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new messages</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/add}" method="post" th:object="${message}">
+    <table>
+        <tr>
+            <td>Message</td>
+            <td>
+                <input type="text" th:field="*{messageBody}" id="messageBody">
+                <span th:if="${#fields.hasErrors('messageBody')}" th:errors="*{messageBody}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Add Message">
+            </td>
+            <td></td>
+        </tr>
+    </table>
+
+</form>
+
+<a href="/index">Back to list</a>
+
+</body>
+</html>
