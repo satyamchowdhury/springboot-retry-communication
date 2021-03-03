@@ -16,7 +16,9 @@
     <tr th:each="message : ${messages}">
         <td th:text="${message.id}"></td>
         <td th:text="${message.messageBody}"></td>
-        <td> <a href="#">Edit</a> | Delete</td>
+        <td> <a th:href="@{/editForm/{id}(id=${message.id})}">Edit</a> |
+             <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+        </td>
     </tr>
 </table>
 
