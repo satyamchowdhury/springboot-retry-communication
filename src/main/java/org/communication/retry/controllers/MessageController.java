@@ -34,7 +34,8 @@ public class MessageController {
     }
 
     @PostMapping("/add")
-    public String addMessage(@Valid Message message, BindingResult result, Model model){
+    //public String addMessage(@Valid Message message, BindingResult result, Model model){
+    public String addMessage(Model model, @Valid Message message, BindingResult result){
         if(result.hasErrors()){
             return "add-form";
         }
@@ -60,7 +61,8 @@ public class MessageController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteMessage(@PathVariable("id") long id, Model model){
+    //public String deleteMessage(@PathVariable("id") long id, Model model){
+    public String deleteMessage(Model model, @PathVariable("id") long id){
         Message message = messageRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid message id "+id));
         messageRepository.delete(message);
         return "redirect:/index";
