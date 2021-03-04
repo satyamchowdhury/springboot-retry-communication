@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>List of messages</title>
+<style>
+    td, th {
+        border: 1px solid black;
+    }
+
+    table {
+    border-collapse: collapse;
+}
+</style>
+
 </head>
 <body>
 
-<table>
+<table width="50%">
     <tr>
-        <td>Id</td>
-        <td>Message</td>
-        <td>Action</td>
+        <td width="10%"><strong>Id</strong></td>
+        <td width="60%"><strong>Message</strong></td>
+        <td><strong>Action</strong></td>
     </tr>
     <!--Display list of messages here-->
     <tr th:each="message : ${messages}">
@@ -21,8 +31,11 @@
         </td>
     </tr>
 </table>
+<br>
+<div>
+    <a href="/addForm">Add a new message</a>
+</div>
 
-<a href="/addForm">Add a new message</a>
 
 </body>
 </html>
